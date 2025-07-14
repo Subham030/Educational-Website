@@ -1,0 +1,74 @@
+/* FLIP CARD */
+.flip-card {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 320px;
+  height: 260px;
+  margin-top: 0.5rem;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.group:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.flip-card-front {
+  z-index: 2;
+  background-color: #fffdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to bottom right, #fffacd, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+/* ICON FLOAT */
+.icon-floating {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  z-index: 10;
+}
+
+.group:hover .icon-floating {
+  transform: translateY(-10px) scale(1.1);
+  filter: drop-shadow(0 0 8px #060606);
+}
+
+/* Optional keyframe floating */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+.animate-float {
+  animation: float 1.2s ease-in-out infinite;
+}
